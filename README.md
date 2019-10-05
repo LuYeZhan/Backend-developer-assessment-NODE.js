@@ -56,9 +56,12 @@ clientId: {
   type: String
 }
 
+```
+
 ## User model
  
 ```
+
 id: {
   type: String,
   unique: true,
@@ -72,6 +75,8 @@ email : {
 role: {
   type: String
 }
+
+```
 
 ## Links
 
