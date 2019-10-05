@@ -12,4 +12,4 @@ class PoliciesService{
   }
 }
 
-const loveServiceInstance = new PoliciesService();
+const PoliciesServiceInstance = new PoliciesService();
