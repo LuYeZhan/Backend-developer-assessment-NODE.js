@@ -20,16 +20,15 @@ This is an app to test my node.js knowledge. We are gonna take information off a
 ## ROUTES:
 
 - GET / 
-  - redirects to /home if user logged in
-  - renders the landing page 
+  - renders the home page
 - GET /userbyid
-  - renders user data filtered by user id
+  - get user data filtered by user id
 - GET /userbyusername
-  - renders user data filtered by username
+  - get user data filtered by username
 - GET /policiesbyusername (only admin)
-  - renders lists of policies linked to a username
+  - get lists of policies linked to a username
 - GET /policiesbynumber (only admin)
-  - renders user linked to a policy number
+  - get user linked to a policy number
 
 
 ## Models

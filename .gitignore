@@ -27,4 +27,5 @@ desktop.ini
 
 
 # dotenv
-.env
+# env is commented to let you run the npm once forked, I never upload -env to github.
+# .env
