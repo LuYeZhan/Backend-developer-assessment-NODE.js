@@ -4,9 +4,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+require('dotenv').config({ path: '.env' });
 
 const app = express();
 
@@ -29,8 +32,6 @@ app.use(session({
     maxAge: 24 * 60 * 60 * 1000
   }
 }));
-
-app.use(flash());
 
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;
