@@ -1,35 +1,34 @@
 const express = require('express');
 const router = express.Router();
+const fetch = require('node-fetch');
+
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
-router.get('/userbyid', async (req, res, next) => {
+router.get('/byid', async (req, res, next) => {
   try {
-    const userId = clients.id;
-    const userFound = User.findById(userId);
-    if (!userFound) {
-      next();
-    }
-    const user = await User.findById(userId);
-    console.log(userId);
+    await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
+      .then(res => res.json())
+      .then(clients => {
+        res.render('users', clients );
+        console.log(clients);
+      });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
 
-router.get('/userbyusername', async (req, res, next) => {
+router.get('/byusername', async (req, res, next) => {
   try {
-    const username = clients.name;
-    const userFound = User.findByUsername(username);
-    if (!userFound) {
-      next();
-    }
-    const user = await User.findByUsername(username);
-    console.log(username);
+    await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
+      .then(res => res.json())
+      .then(clients => {
+        res.render('users', clients );
+        console.log(clients);
+      });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });

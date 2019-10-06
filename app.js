@@ -5,14 +5,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const router = express.Router();
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const policiesRouter = require('./routes/policies');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 require('dotenv').config({ path: '.env' });
-const PoliciesService = require('./services/PoliciesService');
-
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -51,7 +50,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users',usersRouter);
 app.use('/policies', policiesRouter);
 // -- 404 and error handler
 
