@@ -1,33 +1,33 @@
 const express = require('express');
 const router = express.Router();
-
+const fetch = require('node-fetch');
 
 /* GET users listing. */
 
-router.get('/policiesbyusername', async (req, res, next) => {
+router.get('/byusername', async (req, res, next) => {
   try {
-    const username = client.id;
-    const policiesFound = Policies.findById(policies);
-    if (!policiesFound) {
-      next();
-    }
-    const policies = await Policies.findById(policies);
-    console.log(policies);
+    await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+      .then(res => res.json())
+      .then(policies => {
+        res.render('policies', policies );
+        console.log(policies);
+      });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
 
-router.get('/policiesbynumber', async (req, res, next) => {
+router.get('/bynumber', async (req, res, next) => {
   try {
-    const number = policies.id;
-    const policiesFound = Policies.findByNumber(policies);
-    if (!policiesFound) {
-      next();
-    }
-    const policies = await Policies.findByNumber(policies);
-    console.log(policies);
+    await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+      .then(res => res.json())
+      .then(policies => {
+        res.render('policies', policies );
+        console.log(policies);
+      });
   } catch (error) {
+    console.log(error);
     next(error);
   }
 });
