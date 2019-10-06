@@ -10,7 +10,6 @@ router.get('/byusername', async (req, res, next) => {
       .then(res => res.json())
       .then(policies => {
         res.render('policies', policies );
-        console.log(policies);
       });
   } catch (error) {
     console.log(error);
@@ -24,7 +23,6 @@ router.get('/bynumber', async (req, res, next) => {
       .then(res => res.json())
       .then(policies => {
         res.render('policies', policies );
-        console.log(policies);
       });
   } catch (error) {
     console.log(error);

@@ -11,7 +11,6 @@ router.get('/byid', async (req, res, next) => {
       .then(res => res.json())
       .then(clients => {
         res.render('users', clients );
-        console.log(clients);
       });
   } catch (error) {
     console.log(error);
@@ -25,7 +24,6 @@ router.get('/byusername', async (req, res, next) => {
       .then(res => res.json())
       .then(clients => {
         res.render('users', clients );
-        console.log(clients);
       });
   } catch (error) {
     console.log(error);
