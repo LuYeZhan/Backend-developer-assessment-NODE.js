@@ -1,5 +1,20 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Insurance app</h1>
+<p>Welcome to Axa</p>
+<form action="/users/serchById" method="POST">
+<label for="text">insert your id</label>
+<input type="text" name='id'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/users/poliByName" method="POST">
+<label for="text">insert your name</label>
+<input type="text" name='name'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/users/usersbypolinumber" method="POST">
+<label for="text">insert your police number</label>
+<input type="text" name='number'> 
+<button type="submit"> submit</button>
+</form>
 <a href="/users/byid"><button>user by id</button></a>
 <a href="/users/byusername"><button>user by username</button></a>
 <a href="/policies/byusername"><button>policies by username</button></a>
