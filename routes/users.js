@@ -2,30 +2,24 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 
-
-/* GET users listing. */
-
-router.post('/serchById', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   const {id} = req.body;
-  console.log(id);
   try {
     await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.clients[0]);
-        let clientToSend = {};
+        let authClient = {};
         data.clients.forEach((client) => {
           if(id === client.id ){
-            clientToSend = client;
-            req.currentUser = client;
+            authClient = client;
           }
         });
-        if(clientToSend.role === 'admin'){
-          res.render('admins', {clientToSend} );
-        }else if(clientToSend.role === 'user'){
-          res.render('users', {clientToSend} );
+        if(authClient.role === 'admin'){
+          res.render('admins', {authClient} );
+        }else if(authClient.role === 'user'){
+          res.render('users', {authClient} );
         }else{
-          res.render('index');
+          res.render('wrong-id');
         }
       });
   } catch (error) {
@@ -33,36 +27,74 @@ router.post('/serchById', async (req, res, next) => {
   }
 });
 
-router.post('/poliByName', async (req, res, next) => {
+router.post('/searchbyid', async (req, res, next) => {
+  const {id} = req.body;
+  try {
+    await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
+      .then(res => res.json())
+      .then(data => {
+        let searchedClient = {};
+        data.clients.forEach((client) => {
+          if(id === client.id ){
+            searchedClient = client;
+            res.render('user-search',searchedClient);
+          } else {
+            res.render('auth-wrong-id');
+          }
+        });
+      });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/searchbyname', async (req, res, next) => {
+  const {name} = req.body;
+  try {
+    await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
+      .then(res => res.json())
+      .then(data => {
+        let searchedClient = {};
+        data.clients.forEach((client) => {
+          if(name === client.name ){
+            searchedClient = client;
+            res.render('user-search',searchedClient);
+          } else {
+            res.render('wrong-name');
+          }
+        });
+      });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/polibyname', async (req, res, next) => {
   const {name} = req.body;
   try {
     const clients = await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.clients)
         return data.clients;});
-    const poli  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
       .then(res => res.json())
       .then(data => {
         return data.policies;
       });
-    let poliToSend = {};
-    clients.forEach(c => {
-      if(name === c.name){
-        poli.forEach(p => {
-          if(c.id === p.clientId){
-            console.log('ha entrado')
-            poliToSend = p;
+    let searchedPolicy = {};
+    clients.forEach(client => {
+      if(name === client.name){
+        policies.forEach(policy => {
+          if(client.id === policy.clientId){
+            searchedPolicy = policy;
           }
         }
         );
       }
     }
     );
-    console.log(poliToSend,'hecho');
-    if(poliToSend.clientId){
-      console.log(poliToSend,'pepe');
-      res.render('poliza', poliToSend );
+    if(searchedPolicy.clientId){
+      res.render('policy', searchedPolicy );
     }else{
       res.render('not-found' );
     }
@@ -71,37 +103,34 @@ router.post('/poliByName', async (req, res, next) => {
   }
 });
 
-
 router.post('/usersbypolinumber', async (req, res, next) => {
   const {number} = req.body;
   try {
     const clients = await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.clients)
-        return data.clients;});
-    const poli  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+        return data.clients;
+      });
+    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
       .then(res => res.json())
       .then(data => {
         return data.policies;
       });
     let clientToSend = {};
-    poli.forEach(p => {
-      if(number === p.id){
-        clients.forEach(c => {
-          if(c.id === p.clientId){
-            console.log('ha entrado')
-            clientToSend = c;
+    policies.forEach(policy => {
+      if(number === policy.id){
+        clients.forEach(client => {
+          if(client.id === policy.clientId){
+            console.log('dentro');
+            clientToSend = client.id;
+            res.render('user-search', clientToSend );
           }
-        }
-        );
+        });
       }
-    }
-    );
-    console.log(clientToSend,'hecho');
+    });
     if(clientToSend.clientId){
-      console.log(clientToSend,'pepe');
-      res.render('poliza', clientToSend );
+      console.log(clientToSend.clientId,'4');
+      res.render('user-search', clientToSend );
     }else{
       res.render('not-found' );
     }

@@ -1,9 +1,28 @@
-<h2>admin's list</h2>
+<h2> Welcome {{authClient.name}}</h2>
+<p>This is your admin's dashboard</p>
 {{!-- {{#each clients}} --}}
 <ul class="client-card">
-  <li> client id:{{clientToSend.id}}</li>
-  <li> clientToSend name:{{clientToSend.name}}</li>
-  <li>clientToSend email:{{clientToSend.email}}</li>
-  <li> user rule:{{clientToSend.role}}</li>
+  <li> Your id is:{{authClient.id}}</li>
+  <li> Your email:{{authClient.email}}</li>
   </ul>
 {{!-- {{/each}} --}}
+<form action="/users/searchById" method="POST">
+<label for="text">insert your id</label>
+<input type="text" name='id'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/searchbyname" method="POST">
+<label for="text">insert your search name</label>
+<input type="text" name='name'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/policies/byname" method="POST">
+<label for="text">insert your name</label>
+<input type="text" name='name'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/policies/bynumber" method="POST">
+<label for="text">insert your police number</label>
+<input type="text" name='number'> 
+<button type="submit"> submit</button>
+</form>

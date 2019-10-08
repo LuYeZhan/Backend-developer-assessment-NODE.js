@@ -1,9 +1,18 @@
-<h2>user's list</h2>
+<h2> Hello {{authClient.name}} </h2>
+<p>This is your user's dashboard</p>
 {{!-- {{#each clients}} --}}
 <ul class="client-card">
-  <li> client id:{{clientToSend.id}}</li>
-  <li> clientToSend name:{{clientToSend.name}}</li>
-  <li>clientToSend email:{{clientToSend.email}}</li>
-  <li> user rule:{{clientToSend.role}}</li>
+  <li> Your id is:{{authClient.id}}</li>
+  <li> Your email:{{authClient.email}}</li>
   </ul>
 {{!-- {{/each}} --}}
+<form action="/users/searchbyid" method="POST">
+<label for="text">insert your search id</label>
+<input type="text" name='id'> 
+<button type="submit"> submit</button>
+</form>
+<form action="/users/searchbyname" method="POST">
+<label for="text">insert your searc name</label>
+<input type="text" name='name'> 
+<button type="submit"> submit</button>
+</form>
