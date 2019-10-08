@@ -4,12 +4,12 @@
   <li> Your id is:{{authClient.id}}</li>
   <li> Your email:{{authClient.email}}</li>
   </ul>
-<form action="/users/searchbyid" method="POST">
+<form action="/users/byid" method="POST">
 <label for="text">insert your id</label>
 <input type="text" name='id'> 
 <button type="submit"> submit</button>
 </form>
-<form action="/users/searchbyname" method="POST">
+<form action="/users/byname" method="POST">
 <label for="text">insert your search name</label>
 <input type="text" name='name'> 
 <button type="submit"> submit</button>

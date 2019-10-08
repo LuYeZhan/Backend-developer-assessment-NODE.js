@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.post('/searchbyid', async (req, res, next) => {
+router.post('/byid', async (req, res, next) => {
   const {id} = req.body;
   try {
     await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
@@ -48,7 +48,7 @@ router.post('/searchbyid', async (req, res, next) => {
   }
 });
 
-router.post('/searchbyname', async (req, res, next) => {
+router.post('/byname', async (req, res, next) => {
   const {name} = req.body;
   try {
     await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
