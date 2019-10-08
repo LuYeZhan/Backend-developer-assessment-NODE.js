@@ -19,17 +19,12 @@ router.post('/byname', async (req, res, next) => {
       if(name === c.name){
         poli.forEach(p => {
           if(c.id === p.clientId){
-            console.log(p,'ole');
             poliToSend = p;
           }
-        }
-        );
+        });
       }
-    }
-    );
-    console.log(poliToSend,'hecho');
+    });
     if(poliToSend.clientId){
-      console.log(poliToSend,'pepe');
       res.render('policy', poliToSend );
     }else{
       res.render('not-found' );
@@ -58,12 +53,9 @@ router.post('/bynumber', async (req, res, next) => {
           if(p.clientId === c.id){
             clientToSend = c;
           }
-        }
-        );
+        });
       }
-    }
-    );
-    console.log(clientToSend);
+    });
     if(clientToSend){ 
       res.render('userbypolicenumber', clientToSend );
     }else{

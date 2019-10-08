@@ -1,11 +1,9 @@
 <h2> Welcome {{authClient.name}}</h2>
 <p>This is your admin's dashboard</p>
-{{!-- {{#each clients}} --}}
 <ul class="client-card">
   <li> Your id is:{{authClient.id}}</li>
   <li> Your email:{{authClient.email}}</li>
   </ul>
-{{!-- {{/each}} --}}
 <form action="/users/searchbyid" method="POST">
 <label for="text">insert your id</label>
 <input type="text" name='id'> 

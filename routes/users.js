@@ -39,7 +39,7 @@ router.post('/searchbyid', async (req, res, next) => {
             searchedClient = client;
             res.render('user-search',searchedClient);
           } else {
-            console.log('auth-wrong-id');
+            console.log('wrong-id');
           }
         });
       });
@@ -56,9 +56,7 @@ router.post('/searchbyname', async (req, res, next) => {
       .then(data => {
         let searchedClient = {};
         data.clients.forEach((client) => {
-          console.log(name);
           if(name === client.name ){
-            console.log(client);
             searchedClient = client;
             res.render('user-search',searchedClient);
           } else {
