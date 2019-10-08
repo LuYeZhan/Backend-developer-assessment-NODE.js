@@ -58,6 +58,7 @@ router.post('/searchbyname', async (req, res, next) => {
         data.clients.forEach((client) => {
           console.log(name);
           if(name === client.name ){
+            console.log(client);
             searchedClient = client;
             res.render('user-search',searchedClient);
           } else {
