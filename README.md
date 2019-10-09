@@ -84,5 +84,13 @@ Patterns
 Unit Test's
 Integration Test's
 
+I tried to learn design patterns, unit testing and integration tests. I realized that the implementation of those would take much more than I anticipated. If I had 2-3 days more I am confident that I can get all my functions with unit test and integrations tests, with Mocha.
+
 ## Main learnings & struggles
+
+Doing this project I've consolidated my knowledge in node.js. Specially on using and comparing multiply information from an API.
+
+I sttrugled on the policy gets, I haven't noticed until late, that most of the policy numbers belongs to the same person. Every time I searched for a different policy number, the same person pop up, I thought I had an error on my code, it took me a long time to realize, that most of the policies belongs to the same person.
+
+I didn't accomplish the testing part of the exercise, I missjudged the difficulty of testing the code. It is really one of the hardest tasks to accomplish as a developer.
 
