@@ -76,8 +76,13 @@ I've used the kanban methodology to have in mind, what I should focus my attenti
 
 Here's a foto of my Kanban on this project. 
 
+photo('./public/images/IMG_4721.jpg')
+
 ## Backlog
 
 Patterns
 Unit Test's
 Integration Test's
+
+## Main learnings & struggles
+
