@@ -76,7 +76,7 @@ I've used the kanban methodology to have in mind, what I should focus my attenti
 
 Here's a foto of my Kanban on this project. 
 
-![Screenshot](IMG_4721.jpg)
+![Photo](public/images/IMG_4721.jpg)
 
 ## Backlog
 
