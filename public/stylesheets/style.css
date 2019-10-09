@@ -8,10 +8,15 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  margin: 40px;
+  padding: 20px;
 }
 
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 /* ---- typography ---- */
 
@@ -22,56 +27,7 @@ body {
   line-height: 147%;
 }
 
-h1 {}
-
-h2 {}
-
-h3 {}
-
-p {
-  margin: 0;
-}
-
-
-
-/* ---- layout ---- */
-
-#site-header {
-  padding: 30px 0;
-  color: white;
-  background: #111;
-}
-
-#site-footer {
-  color: white;
-  padding: 60px 0;
-  background: #111;
-}
-
-#site-main {
-  margin-bottom: 60px;
-}
-
-.container {
-  margin: 0 20px;
-}
-
-.section {
-  margin-bottom: 20px;
-  padding-top: 20px;
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 728px;
-    margin: 0 auto;
-  }
-}
-
-
-
-
-/* ---- components ---- */
+/* ---- classes sort by alphabetical order ---- */
 
 .button {
   width: 100%;
@@ -84,32 +40,28 @@ p {
   color: blue;
   background-color: #fff;
 }
+
+.flex-center{
+  max-width: 80%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  border-top: 2px solid rgb(178, 106, 179);
+  border-right: 1px solid rgb(180, 180, 180);
+  border-left: 1px solid rgb(180, 180, 180);
+  border-bottom: 1px solid rgb(180, 180, 180);
+  padding: 10px;
+  background: antiquewhite;
+}
+
 .client-card{
-  background: yellow;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  max-width: 80%;
+  background: rgb(240, 243, 249);
   padding: 20px;
-  border: 3px solid orange;
-}
-.policy-card{
-  background: orange;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  border: 3px solid rgb(136, 134, 132);
-}
-/* ---- section ---- */
-
-section.testimonials {
-  // ...
-}
-
-section.testimonials .button {
-  margin-bottom: 10px;
+  border-top: 2px solid rgb(178, 106, 179);
+  border-right: 1px solid rgb(180, 180, 180);
+  border-left: 1px solid rgb(180, 180, 180);
+  border-bottom: 1px solid rgb(180, 180, 180);
+  list-style: none;
 }

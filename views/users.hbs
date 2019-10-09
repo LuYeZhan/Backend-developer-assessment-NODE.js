@@ -1,18 +1,18 @@
 <h2> Hello {{authClient.name}} </h2>
 <p>This is your user's dashboard</p>
-{{!-- {{#each clients}} --}}
 <ul class="client-card">
   <li> Your id is:{{authClient.id}}</li>
   <li> Your email:{{authClient.email}}</li>
-  </ul>
-{{!-- {{/each}} --}}
-<form action="/users/byid" method="POST">
-<label for="text">insert your search id</label>
-<input type="text" name='id'> 
-<button type="submit"> submit</button>
-</form>
-<form action="/users/byname" method="POST">
-<label for="text">insert your searc name</label>
-<input type="text" name='name'> 
-<button type="submit"> submit</button>
-</form>
+</ul>
+<div class="flex-center">
+  <form action="/users/byid" method="POST">
+  <label for="text">insert your search id</label>
+  <input type="text" name='id'> 
+  <button type="submit"> submit</button>
+  </form>
+  <form action="/users/byname" method="POST">
+  <label for="text">insert your searc name</label>
+  <input type="text" name='name'> 
+  <button type="submit"> submit</button>
+  </form>
+</div>
