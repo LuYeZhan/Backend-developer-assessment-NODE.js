@@ -9,23 +9,23 @@ router.post('/byname', async (req, res, next) => {
       .then(res => res.json())
       .then(data => {
         return data.clients;});
-    const poli  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
       .then(res => res.json())
       .then(data => {
         return data.policies;
       });
-    let poliToSend = {};
-    clients.forEach(c => {
-      if(name === c.name){
-        poli.forEach(p => {
-          if(c.id === p.clientId){
-            poliToSend = p;
+    let searchedPolicy = {};
+    clients.forEach(client => {
+      if(name === client.name){
+        policies.forEach(policy => {
+          if(client.id === policy.clientId){
+            searchedPolicy = policy;
           }
         });
       }
     });
-    if(poliToSend.clientId){
-      res.render('policy', poliToSend );
+    if(searchedPolicy.clientId){
+      res.render('policy', searchedPolicy );
     }else{
       res.render('not-found' );
     }
@@ -37,7 +37,7 @@ router.post('/byname', async (req, res, next) => {
 router.post('/bynumber', async (req, res, next) => {
   const {number} = req.body;
   try {
-    const poli  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
+    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
       .then(res => res.json())
       .then(data => {
         return data.policies;
@@ -46,18 +46,18 @@ router.post('/bynumber', async (req, res, next) => {
       .then(res => res.json())
       .then(data => {
         return data.clients;});
-    let clientToSend = null;
-    poli.forEach(p => {
-      if(number === p.id){
-        clients.forEach(c => {
-          if(p.clientId === c.id){
-            clientToSend = c;
+    let searchedClient = null;
+    policies.forEach(policy => {
+      if(number === policy.id){
+        clients.forEach(client => {
+          if(policy.clientId === client.id){
+            searchedClient = client;
           }
         });
       }
     });
-    if(clientToSend){ 
-      res.render('userbypolicenumber', clientToSend );
+    if(searchedClient){ 
+      res.render('userbypolicenumber', searchedClient );
     }else{
       res.render('not-found' );
     }
