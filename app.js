@@ -3,6 +3,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const router = express.Router();
@@ -12,6 +13,7 @@ const usersRouter = require('./routes/users');
 const policiesRouter = require('./routes/policies');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const cors = require('cors');
 require('dotenv').config({ path: '.env' });
 const app = express();
 
@@ -19,7 +21,13 @@ mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
-});
+})
+  .then(() => {
+    console.log(`Connected to database`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
 
 app.use(session({
   store: new MongoStore({
@@ -52,22 +60,21 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/auth', auth);
 app.use('/users',usersRouter);
 app.use('/policies', policiesRouter);
 // -- 404 and error handler
 
 app.use((req, res, next) => {
-  res.status(404);
-  res.render('not-found');
+  res.status(404).json({ code: 'not found' });
 });
 
 app.use((err, req, res, next) => {
-  
   console.error('ERROR', req.method, req.path, err);
 
   if (!res.headersSent) {
-    res.status(500);
-    res.render('error');
+    const statusError = err.status || '500';
+    res.status(statusError).json(err);
   }
 });
 
