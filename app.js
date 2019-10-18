@@ -60,7 +60,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/auth', auth);
 app.use('/users',usersRouter);
 app.use('/policies', policiesRouter);
 // -- 404 and error handler

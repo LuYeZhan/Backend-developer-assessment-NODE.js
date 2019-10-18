@@ -1,8 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
+const APIhelper = require('../helpers/APIhelper');
+const { isNotLoggedIn, verifyToken, isAdmin } = require('../middlewares/authMiddlewares');
+const { validationLogin, validationId, validationName, validationPolicyId } = require('../middlewares/validationMiddlewares');
 
-router.post('/byname', async (req, res, next) => {
+
+router.post('/byname',verifyToken, isAdmin,  async (req, res) => {
   const {name} = req.body;
   try {
     const clients = await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
@@ -34,7 +38,7 @@ router.post('/byname', async (req, res, next) => {
   }
 });
 
-router.post('/bynumber', async (req, res, next) => {
+router.post('/bynumber',verifyToken, validationPolicyId, isAdmin, async (req, res) => {
   const {number} = req.body;
   try {
     const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
