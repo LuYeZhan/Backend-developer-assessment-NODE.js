@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fetch = require('node-fetch');
 const APIhelper = require('../helpers/APIhelper');
-const { isNotLoggedIn, verifyToken, isAdmin } = require('../middlewares/authMiddlewares');
-const { validationLogin, validationId, validationName, validationPolicyId } = require('../middlewares/validationMiddlewares');
+const { verifyToken, isAdmin } = require('../middlewares/authMiddlewares');
+const { validationPolicyId } = require('../middlewares/validationMiddlewares');
 
 
 router.post('/byname',verifyToken, isAdmin,  async (req, res) => {

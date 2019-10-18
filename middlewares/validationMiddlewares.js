@@ -3,9 +3,9 @@
 // Check if sent data is OK
 
 const validationLogin = (req, res, next) => {
-  const { email } = req.body;
+  const { id } = req.body;
 
-  if (!email) {
+  if (!id) {
     res.status(422).send({ 'Unprocessable Entity': 'Unable to process the received data' });
   } else {
     next();
