@@ -5,19 +5,11 @@ const APIhelper = require('../helpers/APIhelper');
 const { verifyToken, isAdmin } = require('../middlewares/authMiddlewares');
 const { validationPolicyId } = require('../middlewares/validationMiddlewares');
 
-
 router.post('/byname',verifyToken, isAdmin,  async (req, res) => {
   const {name} = req.body;
   try {
-    const clients = await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
-      .then(res => res.json())
-      .then(data => {
-        return data.clients;});
-    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
-      .then(res => res.json())
-      .then(data => {
-        return data.policies;
-      });
+    const clients = APIhelper.getUsers();
+    const policies  = APIhelper.getPolicies();
     let searchedPolicy = {};
     clients.forEach(client => {
       if(name === client.name){
@@ -41,15 +33,8 @@ router.post('/byname',verifyToken, isAdmin,  async (req, res) => {
 router.post('/bynumber',verifyToken, validationPolicyId, isAdmin, async (req, res) => {
   const {number} = req.body;
   try {
-    const policies  = await fetch(`http://www.mocky.io/v2/580891a4100000e8242b75c5`)
-      .then(res => res.json())
-      .then(data => {
-        return data.policies;
-      });
-    const clients = await fetch(`http://www.mocky.io/v2/5808862710000087232b75ac`)
-      .then(res => res.json())
-      .then(data => {
-        return data.clients;});
+    const policies  = APIhelper.getPolicies();
+    const clients = APIhelper.getUsers();
     let searchedClient = null;
     policies.forEach(policy => {
       if(number === policy.id){
