@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-'use strict';
-const express = require('express');
-=======
 "use strict";
-
 const express = require("express");
->>>>>>> dev
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 

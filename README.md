@@ -39,7 +39,6 @@ cd nameofthefolder
 
 npm install
 
-<<<<<<< HEAD
 npm run start
 
 Once on the home page. You'll need a user id to access to the user dashboard, or an admin id to access to the admin's dashboard.
@@ -62,7 +61,7 @@ Here's some examples you can test:
 user id: 162db393-55ef-4b2c-988d-17ba7c606785 , f382dce9-8152-49ba-ba54-9a7f90a8a332
 user name: Doreen , Baxter, Allen, Spears
 policy by name: Manning , Britney
-policy by policy number: 64cceef9-3a01-49ae-a23b-3761b604800b , 56b415d6-53ee-4481-994f-4bffa47b5239 
+policy by policy number: 64cceef9-3a01-49ae-a23b-3761b604800b , 56b415d6-53ee-4481-994f-4bffa47b5239
 
 Here's a working Demo link.
 
@@ -72,7 +71,7 @@ Here's a working Demo link.
 
 I've used the kanban methodology to have in mind, what I should focus my attention to, and which is the next step.
 
-Here's a foto of my Kanban on this project. 
+Here's a foto of my Kanban on this project.
 
 ![Photo](public/images/IMG_4721.jpg)
 
@@ -91,9 +90,3 @@ Doing this project I've consolidated my knowledge in node.js. Specially on using
 I sttrugled on the policy gets, I haven't noticed until late, that most of the policy numbers belongs to the same person. Every time I searched for a different policy number, the same person pop up, I thought I had an error on my code, it took me a long time to realize, that most of the policies belongs to the same person.
 
 I didn't accomplish the testing part of the exercise, I missjudged the difficulty of testing the code. It is really one of the hardest tasks to accomplish as a developer.
-
-=======
-Start the application (will be running on port 3000)
-
-nodemon start-dev
->>>>>>> dev
