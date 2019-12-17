@@ -39,11 +39,3 @@ After forking or cloning the repository
 cd nameofthefolder
 
 nodemon start-dev
-
-## Kanban
-
-I've used the kanban methodology to have in mind, what I should focus my attention to, and which is the next step.
-
-Here's a foto of my Kanban on this project.
-
-![Photo](public/images/IMG_4721.jpg)
