@@ -38,35 +38,7 @@ After forking or cloning the repository
 
 cd nameofthefolder
 
-npm install
-
-npm run start
-
-Once on the home page. You'll need a user id to access to the user dashboard, or an admin id to access to the admin's dashboard.
-
-Here are one of each:
-user id: a3b8d425-2b60-4ad7-becc-bedf2ef860bd
-admin id: e8fd159b-57c4-4d36-9bd7-a59ca13057bb
-
-On the user's dashboard in order to search user's you'll need an user id to search by id and an user name to search by name.
-
-Here's some examples you can test:
-
-user id: a74c83c5-e271-4ecf-a429-d47af952cfd4 , 55601290-8619-4f54-b831-9c6c26c52b44
-user name: Jerry , Dina, Thelma, Pamela
-
-On the admin's dasboard in order to search user's you'll need an user id to search by id and an user name to search by name. To search by policy you'll need a policy id to search by id, and a policy user name to search by name.
-
-Here's some examples you can test:
-
-user id: 162db393-55ef-4b2c-988d-17ba7c606785 , f382dce9-8152-49ba-ba54-9a7f90a8a332
-user name: Doreen , Baxter, Allen, Spears
-policy by name: Manning , Britney
-policy by policy number: 64cceef9-3a01-49ae-a23b-3761b604800b , 56b415d6-53ee-4481-994f-4bffa47b5239
-
-Here's a working Demo link.
-
-[Deploy Link](https://insurance-node-app.herokuapp.com/)
+nodemon start-dev
 
 ## Kanban
 
@@ -75,19 +47,3 @@ I've used the kanban methodology to have in mind, what I should focus my attenti
 Here's a foto of my Kanban on this project.
 
 ![Photo](public/images/IMG_4721.jpg)
-
-## Backlog
-
-Patterns
-Unit Test's
-Integration Test's
-
-I tried to learn design patterns, unit testing and integration tests. I realized that the implementation of those would take much more than I anticipated. If I had 2-3 days more I am confident that I can get all my functions with unit test and integrations tests, with Mocha.
-
-## Main learnings & struggles
-
-Doing this project I've consolidated my knowledge in node.js. Specially on using and comparing multiply information from an API.
-
-I sttrugled on the policy gets, I haven't noticed until late, that most of the policy numbers belongs to the same person. Every time I searched for a different policy number, the same person pop up, I thought I had an error on my code, it took me a long time to realize, that most of the policies belongs to the same person.
-
-I didn't accomplish the testing part of the exercise, I missjudged the difficulty of testing the code. It is really one of the hardest tasks to accomplish as a developer.
